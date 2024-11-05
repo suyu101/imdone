@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Page title that appears in browser tab -->
+    <title>Suyesha's Website</title>
+  </head>
+  <body>
+    <!-- Splash section - The first thing visitors see -->
+
+    <section id="splash-container">
+      <div id="splash-text">
+        <!-- Main introduction -->
+        <span>Hello! I am done.</span>
+
+        <!-- Dynamic typing effect section -->
+        <section id="typing-container">
+          <span>I am interested in <span id="typing-text"></span></span>
+        </section>
+
+        <!-- Social media links section -->
+        <section id="connection-container">
+          <span>don't <del>connect with me</del></span>
+          <div id="connection-links">
+            <!-- LinkedIn link -->
+            <a href="https://www.linkedin.com/in/suyesha-saha-912906321/" target="_blank">
+              <img src="/assets/cutu.jpg" alt="linkedin" />
+            </a>
+            <!-- GitHub link -->
+            <a href="https://github.com/suyu101/" target="_blank">
+              <img src="/assets/cutuxl.jpg" alt="github" />
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Down arrow indicating more content below -->
+      <img src="/assets/brat-charli-xcx-brat.gif" alt="down arrow" id="down-arrow" />
+    </section>
+
+    <!-- Interests section - Displaying different areas of interest 
+    <section id="interests-container">
+
+      <div>
+        <div class="interest-header">Literacy</div>
+        <span>
+          I am very literate. I will try hard to continue
+          to be literate. I think my literacy could save the world one day. 
+        </span>
+      </div>
+      <div class=""></div>
+      <div>
+        <div class="interest-header">Stickers</div>
+        <span>
+          I enjoy making stickers. It makes me feel happy. Please don't judge me.
+          I hate myself.
+        </span>
+      </div>
+      <div class=""></div>
+Public Speaking interest
+      <div>
+        <div class="interest-header">Have a nice day.</div>
+        <span>
+          I tell people to have a nice day. A lot. I hope they have a nice day or something.
+        </span>
+      </div>
+    </section>
+  -->
+
+    <section id="interests-container">
+    <!-- Literacy interest -->
+      <div>
+        <div class="interest-header">Literacy</div>
+        <span>
+          I am very literate. I will try hard to continue
+          to be literate. I think my literacy could save the world one day.
+        </span>
+      </div>
+    
+    <!-- Sticker between Literacy and Stickers interest -->
+      <img src="assets/sticky1.png" alt="sticker" class="sticker" />
+  
+    <!-- Stickers interest -->
+      <div>
+        <div class="interest-header">Stickers</div>
+        <span>
+          I enjoy making stickers. It makes me feel happy. Please don't judge me. I hate myself.
+        </span>
+      </div>
+    
+    <!-- Sticker between Stickers and Have a nice day interest -->
+      <img src="assets/sticky2.png" alt="sticker" class="sticker" />
+  
+    <!-- Have a nice day interest -->
+      <div>
+        <div class="interest-header">Have a nice day.</div>
+        <span>
+          I tell people to have a nice day. A lot. I hope they have a nice day or something.
+        </span>
+      </div>
+    </section>
+  
+
+    <section id="projects-container">
+      <div id="projects">
+        <div>
+          <div class="project-title">Have Nothing.</div>
+          <span>
+            Bro bye. Please. You really thought I had any projects. Pffff. Sucker. Till date (04-10-24) nothing.
+          </span>
+          <div class="project-details">
+            <a href="https://www.mathworks.com/products/matlab.html" target="_blank"
+              >ilovematlab<3</a
+            >
+          </div>
+        </div>
+        <div>
+          <div class="project-title">Have Pity.</div>
+          <span>
+            Please feel sorry for me. Why is the size of the box changing?! I don't want it to change which is why
+            I'm writing a lot. I think it is because of flexi-? something. 
+          </span>
+          <div class="project-details">
+            <a href="https://www.reddit.com/r/Piracy/comments/1fv8aba/we_dont_want_this_attention/">hehheheheeh</a>
+          </div>
+        </div>
+        <div>
+          <div class="project-title">Have a Nice Day.</div>
+          <span>
+            Because I'm not. MATLAB midterm tomorrow. I want to cry, curl up in a ball and die. Hopefully it goes well
+            and I feel better later. 
+          </span>
+          <div class="project-details">
+            <a href="https://www.seriouseats.com/">leaveplsbro:(</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>by suyesha saha</span>
+      <span>all by herself</span>
+      <span>
+        <strong>&copy; definitely</strong>
+      </span>
+    </footer>
+
+  <!-- JavaScript for the typing effect -->
+  <script>
+    // Get the element where the typing effect will occur
+    const typingElement = document.getElementById("typing-text");
+
+    // Array of texts to display in the typing effect
+    const typeArray = [
+      "bedrot.",
+      "brainrot.",
+      "giving up.",
+      "reddit.",
+    ];
+
+    // Current index of the *character* in the current word
+    let index = 0; 
+
+    // We may either be adding characters to the screen or removing them
+    let isAdding = true; 
+
+    // Index of the current word in typeArray
+    let typeIndex = 0;
+
+    function playAnim() {
+
+      // The function within this runs after a certain time
+      setTimeout(
+
+        function () {
+          
+          // Put all characters upto the current index in the given word
+          // which is being typed out
+          typingElement.innerText = typeArray[typeIndex].slice(0, index);
+
+          if (isAdding) {
+
+            // If we reach the end of the current word while adding characters
+            if (index >= typeArray[typeIndex].length) {
+
+              // We will no longer add characters from next call onwards
+              isAdding = false;
+
+              // Call the function again after some pause (timeout)
+              setTimeout(function () {
+                playAnim();
+              }, 500);
+
+              return;
+
+            } else {
+
+              // We didn't reach the end of current word
+              // So simply increase the index to add the next character
+              index++;
+            }
+
+          } else {
+            // If we're removing characters
+
+            // And if we reach the start of the current word
+            if (index === 0) {
+
+              // We removed all the characters, so we will add
+              // characters from next call onwards
+              isAdding = true;
+
+              // Since the current word was finished, we will add characters
+              // to the next word from next call onwards
+              typeIndex++;
+
+              // If we have already completed all the words in the array
+              // we will start from the first word again
+              if (typeIndex >= typeArray.length) {
+                typeIndex = 0;
+              }
+
+            } else {
+
+              // If we haven't reached the start of the current word yet
+              // Then simply remove the word at the current index
+              index--;
+            }
+          }
+
+          // Call this function again (to repeat the process from where we left)
+          playAnim();
+        },
+
+        // This just tells the timeout function to wait for 120ms before running
+        120
+      );
+    }
+
+    // LET THE PARTY BEGIN!
+    playAnim();
+  </script>
+  </body>
+</html>
